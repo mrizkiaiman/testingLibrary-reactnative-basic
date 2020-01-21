@@ -3,6 +3,7 @@ import { StyleSheet, View, Text } from 'react-native'
 
 import Logo from '../components/Logo'
 import Form from '../components/Form'
+import Button from '../components/Button'
 
 function Login() {
   const styles = StyleSheet.create({
@@ -12,22 +13,12 @@ function Login() {
       justifyContent: 'center',
       alignItems: 'center'
     },
-    logoContainer: {
-      
-    },
-    formContainer: {
+    formsContainer: {
       width: '100%',
       justifyContent: 'center',
       alignItems: 'center'
     },
-    formEmailContainer: {
-      marginBottom: 30,
-      height: '24%'
-    },
-    formPasswordContainer: {
-
-    },
-    getStartedContainer: {
+    buttonContainer: {
       marginTop: 50
     },
     footerContainer: {
@@ -41,19 +32,13 @@ function Login() {
 
   return(
     <View style={styles.mainContainer}>
-      <View>
-        <Logo />
-      </View>
-      <View style={styles.formContainer}>
-        <View style={styles.formEmailContainer}>
-          <Form />
-        </View>
-        <View style={styles.formPasswordContainer}>
-          <Text>Password</Text>
-        </View>
+      <Logo />
+      <View style={styles.formsContainer}>
+        <Form icon="md-mail" placeholder="Email"/>
+        <Form icon="md-lock" placeholder="Password"/>
       </View>
       <View style={styles.getStartedContainer}>
-        <Text>Get Started</Text>
+        <Button name="GET STARTED" />
       </View>
       <View style={styles.footerContainer}>
         <Text>Create Account</Text>

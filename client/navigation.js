@@ -5,8 +5,8 @@ import Login from './pages/Login'
 import CreateAccount from './pages/CreateAccount'
 
 const rootNavigator = createSwitchNavigator({
-	Login,
-	CreateAccount
+  CreateAccount,
+  Login
 })
 
 export default createAppContainer(rootNavigator)
