@@ -1,11 +1,23 @@
-import React from 'react'
-import { StyleSheet, View, Text } from 'react-native'
+import React, { useState } from 'react'
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 
 import Logo from '../components/Logo'
 import Form from '../components/Form'
 import Button from '../components/Button'
 
-function Login() {
+function Login(props) {
+  const [ email, setEmail ] = useState('')
+  const [ password, setPassword ] = useState('')
+
+  const toCreateAccount = () => {
+    props.navigation.navigate('CreateAccount')
+  }
+
+  const TestFunction = () => {
+    console.log(email)
+    console.log(password)
+  }
+
   const styles = StyleSheet.create({
     mainContainer: {
       backgroundColor: '#555555',
@@ -14,39 +26,54 @@ function Login() {
       alignItems: 'center'
     },
     formsContainer: {
-      width: '100%',
+      width: '90%',
       justifyContent: 'center',
-      alignItems: 'center'
+      alignItems: 'center',
+      padding: 0,
+      marginVertical: 45
     },
     buttonContainer: {
-      marginTop: 50
+      width: '90%'
     },
     footerContainer: {
       padding: 30,
+      marginTop: 14,
       width: '100%',
       flexDirection: 'row',
       justifyContent: 'space-between',
-      alignItems: 'center'
+      alignItems: 'center',
+    },
+    footerMenus: {
+      color: 'white'
     }
   })
+
+  const buttonCustomStyles = {
+    backgroundColor: '#888888',
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
 
   return(
     <View style={styles.mainContainer}>
       <Logo />
       <View style={styles.formsContainer}>
-        <Form icon="md-mail" placeholder="Email"/>
-        <Form icon="md-lock" placeholder="Password"/>
+        <Form value={email} setValue={setEmail} icon="md-mail" placeholder="Email"/>
+        <Form value={password} setValue={setPassword} icon="md-lock" placeholder="Password"/>
       </View>
-      <View style={styles.getStartedContainer}>
-        <Button name="GET STARTED" />
+      <View style={styles.buttonContainer}>
+        <Button command={TestFunction} customStyles={buttonCustomStyles} name="GET STARTED" />
       </View>
       <View style={styles.footerContainer}>
-        <Text>Create Account</Text>
-        <Text>Forgot Password</Text>
+        <TouchableOpacity onPress={toCreateAccount}>
+          <Text style={styles.footerMenus}>Create Account</Text>
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Text style={styles.footerMenus}>Forgot Password</Text>
+        </TouchableOpacity>
       </View>
     </View>
   )
-
 }
 
 export default Login

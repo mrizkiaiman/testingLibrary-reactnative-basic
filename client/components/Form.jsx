@@ -1,25 +1,33 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { StyleSheet } from 'react-native'
-import { Container, Header, Content, Item, Input } from 'native-base';
-import { Ionicons } from '@expo/vector-icons';
+import { Item, Input, Icon } from 'native-base';
 
 function Form(props) {
   const styles = StyleSheet.create({
     container: {
-      width: '90%',
-      height: '16%',
+      width: '100%',
       margin: 10,
-      alignItems: 'center'
+      backgroundColor: '#888888',
+      color: 'white',
     },
-    logo: {
-      marginHorizontal: 18
-    }
+    icon: {
+      marginHorizontal: 18,
+      color: 'white',
+      width: '10%',
+      height: 20
+    },
   })
 
   return (
     <Item rounded style={styles.container}>
-      <Ionicons style={styles.logo} name={props.icon} size={23} color="white" />
-      <Input placeholder={props.placeholder} placeholderTextColor="#bdc3c7"/>
+      <Icon type="Ionicons" style={styles.icon} name={props.icon} size={23} />
+      <Input 
+        onChangeText={v => props.setValue(v)} 
+        placeholder={props.placeholder} 
+        placeholderTextColor="#bdc3c7"
+        autoCapitalize="none"
+        keyboardType="default"
+      />
     </Item>
   )
 }
