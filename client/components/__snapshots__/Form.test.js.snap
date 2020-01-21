@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render Form Renders without crashing 1`] = `
+<View
+  accessible={true}
+  focusable={false}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#888888",
+      "borderBottomWidth": 1,
+      "borderColor": "#D9D5DC",
+      "borderLeftWidth": 1,
+      "borderRadius": 30,
+      "borderRightWidth": 1,
+      "borderTopWidth": 1,
+      "borderWidth": 1,
+      "color": "white",
+      "flexDirection": "row",
+      "margin": 10,
+      "marginLeft": 2,
+      "opacity": 1,
+      "width": "100%",
+    }
+  }
+  testID="test-formItem"
+>
+  <Text />
+  <TextInput
+    allowFontScaling={true}
+    autoCapitalize="none"
+    editable={true}
+    keyboardType="default"
+    onChangeText={[Function]}
+    placeholderTextColor="#bdc3c7"
+    rejectResponderTermination={true}
+    style={
+      Object {
+        "color": "#000",
+        "flex": 1,
+        "fontSize": 17,
+        "height": 50,
+        "paddingLeft": 8,
+        "paddingRight": 5,
+        "top": 1.5,
+      }
+    }
+    testID="test-formInput"
+    underlineColorAndroid="rgba(0,0,0,0)"
+  />
+</View>
+`;

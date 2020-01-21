@@ -10,8 +10,8 @@ function Logo() {
   })
 
   return (
-    <View>
-      <Image style={styles.image} source={require('../assets/logo.png')}></Image>
+    <View testID="test-logoContainer">
+      <Image testID="test-logoImage" style={styles.image} source={require('../assets/logo.png')}></Image>
     </View>
   )
 }

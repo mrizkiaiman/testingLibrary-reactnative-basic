@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render Logo Renders without crashing 1`] = `
+<View
+  testID="test-logoContainer"
+>
+  <Image
+    source={1}
+    style={
+      Object {
+        "height": 100,
+        "width": 330,
+      }
+    }
+    testID="test-logoImage"
+  />
+</View>
+`;

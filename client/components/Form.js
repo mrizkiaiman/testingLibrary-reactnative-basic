@@ -12,16 +12,17 @@ function Form(props) {
     },
     icon: {
       marginHorizontal: 18,
-      color: 'white',
+      color: props.iconColor,
       width: '10%',
-      height: 20
+      height: 20,
     },
   })
 
   return (
-    <Item rounded style={styles.container}>
-      <Icon type="Ionicons" style={styles.icon} name={props.icon} size={23} />
+    <Item testID="test-formItem" rounded style={styles.container}>
+      <Icon testID="test-formIcon" type="Ionicons" style={styles.icon} name={props.icon} size={23} active={false} />
       <Input 
+        testID="test-formInput"
         onChangeText={v => props.setValue(v)} 
         placeholder={props.placeholder} 
         placeholderTextColor="#bdc3c7"

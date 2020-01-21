@@ -10,8 +10,8 @@ function Buttons(props) {
   })
 
   return (
-    <Button onPress={props.command} rounded style={styles.button, {...props.customStyles}}>
-      <Text>{props.name}</Text>
+    <Button testID="test-button" onPress={props.command} rounded style={styles.button, {...props.customStyles}}>
+      <Text testID="test-buttonText">{props.name}</Text>
     </Button>
   )
 }

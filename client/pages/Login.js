@@ -54,22 +54,30 @@ function Login(props) {
     alignItems: 'center',
   }
 
+  const forms = [
+    { value: email, setValue: setEmail, icon: 'md-mail', placeholder: 'Email', iconColor: 'white' },
+    { value: password, setValue: setPassword, icon: 'md-lock', placeholder: 'Password', iconColor: 'white' },
+  ]
+
   return(
-    <View style={styles.mainContainer}>
+    <View testID="test-mainContainer" style={styles.mainContainer}>
       <Logo />
-      <View style={styles.formsContainer}>
-        <Form value={email} setValue={setEmail} icon="md-mail" placeholder="Email"/>
-        <Form value={password} setValue={setPassword} icon="md-lock" placeholder="Password"/>
+      <View testID="test-formsContainer" style={styles.formsContainer}>
+        {
+          forms.map((form, index) => (
+            <Form key={index} {...form}  />
+          ))
+        }
       </View>
-      <View style={styles.buttonContainer}>
+      <View testID="test-buttonContainer" style={styles.buttonContainer}>
         <Button command={TestFunction} customStyles={buttonCustomStyles} name="GET STARTED" />
       </View>
-      <View style={styles.footerContainer}>
+      <View testID="test-footerContainer" style={styles.footerContainer}>
         <TouchableOpacity onPress={toCreateAccount}>
-          <Text style={styles.footerMenus}>Create Account</Text>
+          <Text testID="test-footerMenu-1" style={styles.footerMenus}>Create Account</Text>
         </TouchableOpacity>
         <TouchableOpacity>
-          <Text style={styles.footerMenus}>Forgot Password</Text>
+          <Text testID="test-footerMenu-2" style={styles.footerMenus}>Forgot Password</Text>
         </TouchableOpacity>
       </View>
     </View>
