@@ -1,36 +1,38 @@
 import React from 'react'
 import Button from './Button'
-import renderer from 'react-test-renderer'
 import { render, fireEvent } from 'react-native-testing-library'
 
 const handleSubmitMocked = jest.fn()
 
+function renderButton(props) {
+  const component = render (
+    <Button {...props} />
+  )
+  const button = component.queryByTestId('test-button')
+  const buttonText = component.queryByTestId('test-buttonText')
+
+  return {
+    ...component,
+    button,
+    buttonText
+  }
+}
+
 describe('Render Button', () => {
-  it('Renders without crashing', () => {
-    const tree = renderer.create(
-      <Button />
-    ).toJSON()
-    expect(tree).toMatchSnapshot()
+  test('Renders without crashing', () => {
+    const component = renderButton()
+    expect(component).toMatchSnapshot()
   })
 
-  it('Should render a buttons body', () => {
-    const { getByTestId } = render (
-      <Button />
-    )
-    expect(getByTestId('test-button')).toBeTruthy()
+  test('Should render buttons body, and text', () => {
+    const { button, buttonText } = renderButton()
+    expect(button).toBeTruthy()
+    expect(buttonText).toBeTruthy()
   })
 
-  it('Should render a buttons text', () => {
-    const { getByTestId } = render (
-      <Button />
-    )
-    expect(getByTestId('test-buttonText')).toBeTruthy()
-  })
-
-  it('Function can be called', () => {
-    const { getByTestId } = render (
-      <Button onSubmit={handleSubmitMocked} />
-    )
-    fireEvent.press(getByTestId('test-button'))
+  test('Function can be called', () => {
+    const { button } = renderButton({ onSubmit: handleSubmitMocked })
+    fireEvent.press(button)
+    expect(handleSubmitMocked).toHaveBeenCalledTimes(1)
   })
 })

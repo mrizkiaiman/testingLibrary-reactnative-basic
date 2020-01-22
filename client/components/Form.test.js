@@ -1,41 +1,40 @@
 import React from 'react'
 import Form from './Form'
-import renderer from 'react-test-renderer'
 import { render, fireEvent } from 'react-native-testing-library'
 
 const onChangeTextMocked = jest.fn()
 const CHANGE_TEXT = 'Test'
 
+function renderForm(props) {
+  const component = render(
+    <Form {...props} />
+  )
+  const formItem = component.queryAllByTestId('test-formItem')
+  const formIcon = component.queryAllByTestId('test-formIcon')
+  const formInput = component.queryAllByTestId('test-formInput')
+
+  return {
+    ...component,
+    formItem,
+    formIcon,
+    formInput
+  }
+}
+
 describe('Render Form', () => {
-  it('Renders without crashing', () => {
-    const tree = renderer.create(
-      <Form />
-    ).toJSON();
-    expect(tree).toMatchSnapshot()
+  test('Renders without crashing', () => {
+    const component = renderForm()
+    expect(component).toMatchSnapshot()
   })
 
-  it('Should render a forms item/container', () => {
-    const { debug, getByTestId } = render (
-      <Form />
-    )
-    expect(getByTestId('test-formItem')).toBeTruthy()
+  test('Should render a forms item/container, icon, and input-box', () => {
+    const { formItem, formIcon, formInput } = renderForm()
+    expect(formItem).toBeTruthy()
+    expect(formIcon).toBeTruthy()
+    expect(formInput).toBeTruthy()
   })
 
-  it('Should render a forms icon', () => {
-    const { getByTestId } = render (
-      <Form />
-    )
-    expect(getByTestId('test-formIcon')).toBeTruthy()
-  })
-
-  it('Should render a forms input-box', () => {
-    const { getByTestId } = render (
-      <Form />
-    )
-    expect(getByTestId('test-formInput')).toBeTruthy()
-  })
-
-  it('setValue is valid', () => {
+  test('setValue is valid', () => {
     const { getByTestId } = render (
       <Form setValue={onChangeTextMocked} />
     )

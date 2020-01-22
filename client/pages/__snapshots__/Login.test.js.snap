@@ -93,6 +93,7 @@ exports[`Render Login Renders without crashing 1`] = `
         }
         testID="test-formInput"
         underlineColorAndroid="rgba(0,0,0,0)"
+        value=""
       />
     </View>
     <View
@@ -150,6 +151,7 @@ exports[`Render Login Renders without crashing 1`] = `
         }
         testID="test-formInput"
         underlineColorAndroid="rgba(0,0,0,0)"
+        value=""
       />
     </View>
   </View>
@@ -194,6 +196,7 @@ exports[`Render Login Renders without crashing 1`] = `
           "shadowOffset": undefined,
           "shadowOpacity": undefined,
           "shadowRadius": undefined,
+          "width": "100%",
         }
       }
       testID="test-button"

@@ -4,53 +4,75 @@ import renderer from 'react-test-renderer'
 import { render } from 'react-native-testing-library'
 
 describe('Render CreateAccount', () => {
-  it('Renders without crashing', () => {
+  test('Renders without crashing', () => {
     const tree = renderer.create(
       <CreateAccount />
     ).toJSON();
     expect(tree).toMatchSnapshot()
   })
 
-  it('Should render main container', () => {
+  test('Should render main container, title, forms container, footer container, and footer menu', () => {
     const { debug, getByTestId } = render (
       <CreateAccount />
     )
     // debug()
     expect(getByTestId('test-mainContainer')).toBeTruthy()
-  })
-
-  it('Should render title', () => {
-    const { getByTestId } = render (
-      <CreateAccount />
-    )
     expect(getByTestId('test-title')).toBeTruthy()
-  })
-
-  it('Should render forms container', () => {
-    const { getByTestId } = render (
-      <CreateAccount />
-    )
     expect(getByTestId('test-formsContainer')).toBeTruthy()
-  })
-
-  it('Should render buttons container', () => {
-    const { getByTestId } = render (
-      <CreateAccount />
-    )
     expect(getByTestId('test-buttonContainer')).toBeTruthy()
-  })
-
-  it('Should render footers container', () => {
-    const { getByTestId } = render (
-      <CreateAccount />
-    )
     expect(getByTestId('test-footerContainer')).toBeTruthy()
-  })
-
-  it('Should render footers menu', () => {
-    const { getByTestId } = render (
-      <CreateAccount />
-    )
     expect(getByTestId('test-footerMenu')).toBeTruthy()
   })
 })
+
+// import React from 'react'
+// import CreateAccount from './CreateAccount'
+// import { render } from 'react-native-testing-library'
+
+// function renderCreateAccount() {
+//   const component = render (
+//     <CreateAccount />
+//   )
+
+//   const mainContainer = component.queryAllByTestId('test-mainContainer')
+//   const title = component.queryAllByTestId('test-title')
+//   const formContainer = component.queryAllByTestId('test-formsContainer')
+//   const buttonContainer = component.queryAllByTestId('test-buttonContainer')
+//   const footerContainer = component.queryAllByTestId('test-footerContainer')
+//   const footerMenu = component.queryAllByTestId('test-footerMenu')
+
+//   return {
+//     mainContainer,
+//     title,
+//     formContainer,
+//     buttonContainer,
+//     footerContainer,
+//     footerMenu
+//   }
+// }
+
+// describe('Render CreateAccount', () => {
+//   it('Renders without crashing', () => {
+//     const component = renderCreateAccount()
+//     expect(component).toMatchSnapshot()
+//   })
+
+//   it('Should render main, form, button, footer container, title, and footer menu', () => {
+//     const { 
+//       mainContainer,
+//       title,
+//       formContainer,
+//       buttonContainer,
+//       footerContainer,
+//       footerMenu
+//     } = renderCreateAccount()
+
+//     expect(mainContainer).toBeTruthy()
+//     expect(title).toBeTruthy()
+//     expect(formContainer).toBeTruthy()
+//     expect(buttonContainer).toBeTruthy()
+//     expect(footerContainer).toBeTruthy()
+//     expect(footerMenu).toBeTruthy()
+//   })
+// })
+

@@ -3,26 +3,28 @@ import Logo from './Logo'
 import renderer from 'react-test-renderer'
 import { render } from 'react-native-testing-library'
 
+function renderLogo() {
+  const component = render (
+    <Logo />
+  )
+  const logoContainer = component.queryAllByTestId('test-logoContainer')
+  const logoImage = component.queryAllByTestId('test-logoImage')
+
+  return {
+    logoContainer,
+    logoImage
+  }
+}
+
 describe('Render Logo', () => {
-  it('Renders without crashing', () => {
-    const tree = renderer.create(
-      <Logo />
-    ).toJSON();
-    expect(tree).toMatchSnapshot()
+  test('Renders without crashing', () => {
+    const component = renderLogo()
+    expect(component).toMatchSnapshot()
   });
 
-  it('Should render a container', () => {
-    const { getByTestId } = render (
-      <Logo />
-    )
-    expect(getByTestId('test-logoContainer')).toBeTruthy()
-  })
-
-  it('Should render a logo image', () => {
-    const { debug, getByTestId } = render (
-      <Logo />
-    )
-    // debug()
-    expect(getByTestId('test-logoImage')).toBeTruthy()
+  test('Should render logos container, and image', () => {
+    const { logoContainer, logoImage } = renderLogo()
+    expect(logoContainer).toBeTruthy()
+    expect(logoImage).toBeTruthy()
   })
 })

@@ -39,7 +39,6 @@ exports[`Render Form Renders without crashing 1`] = `
     autoCapitalize="none"
     editable={true}
     keyboardType="default"
-    onChangeText={[Function]}
     placeholderTextColor="#bdc3c7"
     rejectResponderTermination={true}
     style={

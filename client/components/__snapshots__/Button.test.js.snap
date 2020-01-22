@@ -26,7 +26,7 @@ exports[`Render Button Renders without crashing 1`] = `
       "elevation": 2,
       "flexDirection": "row",
       "height": 45,
-      "justifyContent": "space-between",
+      "justifyContent": "center",
       "opacity": 1,
       "paddingBottom": 6,
       "paddingTop": 6,
@@ -34,6 +34,7 @@ exports[`Render Button Renders without crashing 1`] = `
       "shadowOffset": undefined,
       "shadowOpacity": undefined,
       "shadowRadius": undefined,
+      "width": "100%",
     }
   }
   testID="test-button"
