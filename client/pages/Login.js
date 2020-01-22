@@ -1,19 +1,24 @@
 import React, { useState } from 'react'
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
+import { 
+  StyleSheet, 
+  View, 
+  Text, 
+  TouchableOpacity 
+} from 'react-native'
 
 import Logo from '../components/Logo'
 import Form from '../components/Form'
 import Button from '../components/Button'
 
-function Login(props) {
+function Login({ navigation }) {
   const [ email, setEmail ] = useState('')
   const [ password, setPassword ] = useState('')
 
   const toCreateAccount = () => {
-    props.navigation.navigate('CreateAccount')
+    navigation.navigate('CreateAccount')
   }
 
-  const TestFunction = () => {
+  const handleSubmit = () => {
     console.log(email)
     console.log(password)
   }
@@ -41,7 +46,7 @@ function Login(props) {
       width: '100%',
       flexDirection: 'row',
       justifyContent: 'space-between',
-      alignItems: 'center',
+      alignItems: 'center'
     },
     footerMenus: {
       color: 'white'
@@ -51,12 +56,23 @@ function Login(props) {
   const buttonCustomStyles = {
     backgroundColor: '#888888',
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   }
 
   const forms = [
-    { value: email, setValue: setEmail, icon: 'md-mail', placeholder: 'Email', iconColor: 'white' },
-    { value: password, setValue: setPassword, icon: 'md-lock', placeholder: 'Password', iconColor: 'white' },
+    { 
+      value: email, 
+      setValue: setEmail, 
+      icon: 'md-mail', 
+      placeholder: 'Email', 
+      iconColor: 'white' 
+    },
+    { value: password, 
+      setValue: setPassword, 
+      icon: 'md-lock', 
+      placeholder: 'Password', 
+      iconColor: 'white' 
+    }
   ]
 
   return(
@@ -65,12 +81,16 @@ function Login(props) {
       <View testID="test-formsContainer" style={styles.formsContainer}>
         {
           forms.map((form, index) => (
-            <Form key={index} {...form}  />
+            <Form key={index} {...form} />
           ))
         }
       </View>
       <View testID="test-buttonContainer" style={styles.buttonContainer}>
-        <Button command={TestFunction} customStyles={buttonCustomStyles} name="GET STARTED" />
+        <Button 
+          onSubmit={handleSubmit} 
+          customStyles={buttonCustomStyles} 
+          name="GET STARTED" 
+        />
       </View>
       <View testID="test-footerContainer" style={styles.footerContainer}>
         <TouchableOpacity onPress={toCreateAccount}>

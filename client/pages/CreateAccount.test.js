@@ -1,14 +1,14 @@
 import React from 'react'
 import CreateAccount from './CreateAccount'
-import renderer from 'react-test-renderer';
-import { render } from 'react-native-testing-library';
+import renderer from 'react-test-renderer'
+import { render } from 'react-native-testing-library'
 
 describe('Render CreateAccount', () => {
   it('Renders without crashing', () => {
     const tree = renderer.create(
       <CreateAccount />
     ).toJSON();
-    expect(tree).toMatchSnapshot();
+    expect(tree).toMatchSnapshot()
   })
 
   it('Should render main container', () => {

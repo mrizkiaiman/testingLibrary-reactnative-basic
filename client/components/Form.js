@@ -1,33 +1,46 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { StyleSheet } from 'react-native'
-import { Item, Input, Icon } from 'native-base';
+import { 
+  Item, 
+  Input, 
+  Icon 
+} from 'native-base'
 
-function Form(props) {
+function Form({ value, setValue, placeholder, icon, iconColor}) {
   const styles = StyleSheet.create({
     container: {
       width: '100%',
       margin: 10,
       backgroundColor: '#888888',
-      color: 'white',
+      color: 'white'
     },
     icon: {
       marginHorizontal: 18,
-      color: props.iconColor,
+      color: iconColor,
       width: '10%',
-      height: 20,
+      height: 20
     },
   })
 
   return (
-    <Item testID="test-formItem" rounded style={styles.container}>
-      <Icon testID="test-formIcon" type="Ionicons" style={styles.icon} name={props.icon} size={23} active={false} />
+    <Item 
+      testID="test-formItem" 
+      rounded={true} 
+      style={styles.container}
+    >
+      <Icon 
+        testID="test-formIcon" 
+        style={styles.icon} 
+        name={icon}  
+      />
       <Input 
         testID="test-formInput"
-        onChangeText={v => props.setValue(v)} 
-        placeholder={props.placeholder} 
+        onChangeText={setValue} 
+        placeholder={placeholder} 
         placeholderTextColor="#bdc3c7"
         autoCapitalize="none"
         keyboardType="default"
+        value={value}
       />
     </Item>
   )

@@ -1,16 +1,16 @@
 import React from 'react'
 import Button from './Button'
-import renderer from 'react-test-renderer';
-import { render, fireEvent } from 'react-native-testing-library';
+import renderer from 'react-test-renderer'
+import { render, fireEvent } from 'react-native-testing-library'
 
-const functionMocked = jest.fn();
+const handleSubmitMocked = jest.fn()
 
 describe('Render Button', () => {
   it('Renders without crashing', () => {
     const tree = renderer.create(
       <Button />
-    ).toJSON();
-    expect(tree).toMatchSnapshot();
+    ).toJSON()
+    expect(tree).toMatchSnapshot()
   })
 
   it('Should render a buttons body', () => {
@@ -27,9 +27,9 @@ describe('Render Button', () => {
     expect(getByTestId('test-buttonText')).toBeTruthy()
   })
 
-  it('Command function can be called', () => {
+  it('Function can be called', () => {
     const { getByTestId } = render (
-      <Button command={functionMocked} />
+      <Button onSubmit={handleSubmitMocked} />
     )
     fireEvent.press(getByTestId('test-button'))
   })

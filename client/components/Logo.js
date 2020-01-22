@@ -1,5 +1,9 @@
 import React from 'react'
-import { StyleSheet, View, Image } from 'react-native'
+import { 
+  StyleSheet, 
+  View, 
+  Image 
+} from 'react-native'
 
 function Logo() {
   const styles = StyleSheet.create({
@@ -11,7 +15,11 @@ function Logo() {
 
   return (
     <View testID="test-logoContainer">
-      <Image testID="test-logoImage" style={styles.image} source={require('../assets/logo.png')}></Image>
+      <Image 
+        testID="test-logoImage" 
+        style={styles.image} 
+        source={require('../assets/logo.png')} 
+      />
     </View>
   )
 }

@@ -1,17 +1,17 @@
 import React from 'react'
 import Form from './Form'
-import renderer from 'react-test-renderer';
-import { render, fireEvent } from 'react-native-testing-library';
+import renderer from 'react-test-renderer'
+import { render, fireEvent } from 'react-native-testing-library'
 
-const onChangeTextMocked = jest.fn();
-const CHANGE_TEXT = 'Test';
+const onChangeTextMocked = jest.fn()
+const CHANGE_TEXT = 'Test'
 
 describe('Render Form', () => {
   it('Renders without crashing', () => {
     const tree = renderer.create(
       <Form />
     ).toJSON();
-    expect(tree).toMatchSnapshot();
+    expect(tree).toMatchSnapshot()
   })
 
   it('Should render a forms item/container', () => {
@@ -39,6 +39,6 @@ describe('Render Form', () => {
     const { getByTestId } = render (
       <Form setValue={onChangeTextMocked} />
     )
-    fireEvent.changeText(getByTestId('test-formInput'), CHANGE_TEXT);
+    fireEvent.changeText(getByTestId('test-formInput'), CHANGE_TEXT)
   })
 })
